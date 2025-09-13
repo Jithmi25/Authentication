@@ -2,8 +2,11 @@ import express from 'express';
 import bodyParser from 'body-parser';
 import mongoose from 'mongoose';
 import dotenv from 'dotenv';
+
 dotenv.config();
+
 import userRouter from './Routes/userRouter.js';
+import courseRouter from './Routes/courseRouter.js';
 
 const app = express();
 
@@ -25,6 +28,7 @@ app.use(bodyParser.json())
 app.use(express.json());
 
 app.use("/api/user", userRouter);
+app.use("/api/course", courseRouter);
 
 app.listen(5000, () => {
     console.log("Server is running on port 5000");
